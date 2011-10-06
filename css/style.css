@@ -1,0 +1,81 @@
+#icon-glink {
+	background-image: url('../images/glink-32.png');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+.links-table{
+	width:96%;
+	margin: 40px 0 0 0;
+}
+.links-table th{
+	background-color: #494949;
+	font-weight:lighter;
+	font-size:12px;
+	padding: 3px 4px 2px 4px;
+	color:#FFFFFF;
+	text-align:left;
+	font-family: Century Gothic;
+}
+.links-table td{
+	font-size:11px;
+	text-align:left;
+	padding: 4px 0 2px 4px;
+	color:#000;
+	font-family: Tahoma;
+}
+.links-table tr{
+	vertical-align:middle;
+}
+.links-table tr:nth-child(odd) {
+	background-color:#E0E0E0;
+}
+.links-table tr:nth-child(even) {
+	background-color:#969696;
+}
+.links-table tr:hover{
+	background-color:#E0E0E0;
+}
+
+#auto-hyperlink-add{
+	margin: 30px 0 0 0;
+	font-family:Century Gothic;
+}
+#auto-hyperlink-add input[type=text]{
+	width:280px;
+	border:1px solid #8a8a8a;
+}
+#auto-hyperlink-add select {
+	border: 1px solid #8a8a8a;
+}
+
+
+#spec_post_or_page, #spec_cat {
+	display:none;
+}
+.action-successful{
+	background-image: url('../images/check.png');
+	background-position: 0% 50%;
+	background-repeat:no-repeat;
+	padding-left: 25px;
+	color:#3CAD16;
+	font-family:Century Gothic;
+	font-size:14px;
+	font-weight:bold;
+	margin: 15px 0 5px 0;
+}
+.action-failed{
+	background-image: url('../images/problem.png');
+	background-position: 0% 50%;
+	background-repeat:no-repeat;
+	padding-left: 25px;
+	color:#E00F0F;
+	font-family:Century Gothic;
+	font-size:14px;
+	font-weight:bold;
+	margin: 15px 0 5px 0;
+}
+.form_error{
+	font-style:italic;
+	font-size:11px;
+	color:red;
+}
