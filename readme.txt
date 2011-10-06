@@ -54,4 +54,4 @@ randomly pick from configurations added.
 
 = How many instance of the keyword will it replace? =
 
-It will only replace 2 instance of the keywords.
+It will only replace 2 instances of the keyword.
