@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: Godwinh Lopez (gwinh.dev@gmail.com)
+Contributors: Godwinh Lopez (gwinh.dev[at]gmail.com)
 Tags: seo, anchor text, hyperlink
 Requires at least: 2.0.1
 Tested up to: 3.2.1
