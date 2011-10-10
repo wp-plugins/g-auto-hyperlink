@@ -2,7 +2,7 @@
 /*
 Plugin Name:  G Auto-Hyperlink
 Description: Plugin that automatically converts a text/keyword in a post or page into an anchor text.
-Version: 1.0
+Version: 1.0.1
 Author: Godwinh D. Lopez
 */
 
@@ -14,6 +14,9 @@ add_filter('the_content', 'search_and_replace');
 
 register_activation_hook(__FILE__,'g_auto_hyperlink_install');
 register_uninstall_hook(__FILE__, 'g_auto_hyperlink_uninstall');
+
+$autohyperlink_path = WP_PLUGIN_DIR . '/g-auto-hyperlink';
+$autohyperlink_url = WP_PLUGIN_URL . '/g-auto-hyperlink';
 
 function g_auto_hyperlink_install() {
 	global $wpdb;
@@ -48,13 +51,17 @@ function g_auto_hyperlink_uninstall() {
 }
 
 function g_auto_hyperlink_init() {
-	add_menu_page('G Auto-Hyperlink', 'Auto-Hyperlink', 'administrator', 'g-auto-hyperlink', 'g_auto_hyperlink', plugins_url('/images/glink.png', __FILE__));
+	global $autohyperlink_url;
+	
+	add_menu_page('G Auto-Hyperlink', 'Auto-Hyperlink', 'administrator', 'g-auto-hyperlink', 'g_auto_hyperlink', $autohyperlink_url.'/images/glink.png');
 	add_submenu_page('g-auto-hyperlink', 'Add New', 'Add New', 'administrator', 'g-auto-hyperlink-add', 'g_auto_hyperlink_add');
 	add_submenu_page(null, 'Edit', 'Edit', 'administrator', 'g-auto-hyperlink-edit', 'g_auto_hyperlink_edit');
 }
 
 function g_auto_hyperlink() {
 	global $wpdb;
+	global $autohyperlink_path;
+	global $autohyperlink_url;
 	
 	$table = $wpdb->prefix . 'gautohyperlink';
 	
@@ -69,10 +76,10 @@ function g_auto_hyperlink() {
 		}
 	}
 	
-	$delete_img = plugins_url('/images/delete.png', __FILE__);
-	$edit_img = plugins_url('images/edit.png', __FILE__);
+	$delete_img = $autohyperlink_url . '/images/delete.png';
+	$edit_img = $autohyperlink_url . '/images/edit.png';
 	
-	$html = file_get_contents(plugins_url('/tpl/overview.tpl', __FILE__));
+	$html = file_get_contents($autohyperlink_path . '/tpl/overview.tpl');
 	
 	$links_table = '<table border="0" cellspacing="1" cellpadding="1" class="links-table">';
 	$links_table.= '<tr>';
@@ -140,6 +147,8 @@ function g_auto_hyperlink() {
 }
 
 function g_auto_hyperlink_add() {
+	global $autohyperlink_path;
+	
 	if($_POST){
 		global $wpdb;
 		
@@ -193,7 +202,7 @@ function g_auto_hyperlink_add() {
 	
 	
 	$categories = get_categories_html();
-	$html = file_get_contents(plugins_url('/tpl/add.tpl', __FILE__));
+	$html = file_get_contents($autohyperlink_path . '/tpl/add.tpl');
 	
 	$html = str_replace('{{action-msg}}', $add_action_msg, $html);
 	$html = str_replace('{{category-opt}}', $categories, $html);
@@ -203,6 +212,7 @@ function g_auto_hyperlink_add() {
 
 function g_auto_hyperlink_edit(){
 	global $wpdb;
+	global $autohyperlink_path;
 	
 	$table = $wpdb->prefix . 'gautohyperlink';
 	
@@ -298,7 +308,7 @@ function g_auto_hyperlink_edit(){
 	$appearance.= $categories;
 	$appearance.= $spec_field;
 	
-	$html = file_get_contents(plugins_url('/tpl/edit.tpl', __FILE__));
+	$html = file_get_contents($autohyperlink_path . '/tpl/edit.tpl');
 	$html = str_replace('{{action-msg}}', $edit_action_msg, $html);
 	$html = str_replace('{{ID}}', $result->id, $html);
 	$html = str_replace('{{keyword}}', $result->keyword, $html);

@@ -55,3 +55,9 @@ randomly pick from configurations added.
 = How many instance of the keyword will it replace? =
 
 It will only replace 2 instances of the keyword.
+
+== Changelog ==
+
+= 1.0.1 =
+
+Replaced the wordpress function plugins_url() to WP_CONTENT_URL and WP_CONTENT_DIR in getting the path/url of images or template files.
