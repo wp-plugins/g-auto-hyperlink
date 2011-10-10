@@ -3,7 +3,7 @@ Contributors: Godwinh Lopez (gwinh.dev[at]gmail.com)
 Tags: seo, anchor text, hyperlink
 Requires at least: 2.6
 Tested up to: 3.2.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 Plugin that automatically converts a text/keyword in a post or page into an anchor text.
 
